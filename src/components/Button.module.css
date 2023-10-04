@@ -1,0 +1,107 @@
+.base {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  text-transform: uppercase;
+  transition-duration: 100ms;
+}
+
+.medium {
+  height: 48px;
+  min-width: 48px;
+  padding: 0 16px;
+}
+
+.small {
+  height: 24px;
+  min-width: 24px;
+  padding: 0 4px;
+}
+
+.roundedFull {
+  border-radius: 99999px;
+}
+
+.purple {
+  background-color: rgb(150, 50, 255);
+  color: white;
+}
+
+.purple:hover {
+  background-color: rgb(137, 47, 229);
+}
+
+.purple:active {
+  background-color: rgb(120, 30, 210);
+}
+
+.white {
+  background-color: rgb(255, 255, 255);
+  color: rgb(120, 120, 120);
+}
+
+.white:hover {
+  background-color: rgb(215, 215, 215);
+  color: white;
+}
+
+.white:active {
+  background-color: rgb(195, 195, 195);
+}
+
+.error {
+  background-color: rgb(239, 19, 19);
+  color: white;
+}
+
+.error:hover {
+  background-color: rgb(224, 17, 17);
+}
+
+.error:active {
+  background-color: rgb(206, 16, 16);
+}
+
+.success {
+  background-color: rgb(100, 239, 19);
+  color: white;
+}
+
+.success:hover {
+  background-color: rgb(86, 224, 17);
+}
+
+.success:active {
+  background-color: rgb(51, 206, 16);
+}
+
+.warning {
+  background-color: rgb(239, 210, 19);
+  color: white;
+}
+
+.warning:hover {
+  background-color: rgb(224, 190, 17);
+}
+
+.warning:active {
+  background-color: rgb(206, 181, 16);
+}
+
+.neutral {
+  background-color: rgb(182, 182, 182);
+  color: white;
+}
+
+.neutral:hover {
+  background-color: rgb(157, 157, 157);
+}
+
+.neutral:active {
+  background-color: rgb(121, 121, 121);
+}

@@ -1,0 +1,21 @@
+.base {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #eee;
+}
+
+.container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories {
+  padding: 32px;
+  transition-duration: 400ms;
+  user-select: none;
+}
