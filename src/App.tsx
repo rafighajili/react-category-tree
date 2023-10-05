@@ -39,18 +39,22 @@ export default function App() {
     <div className={styles.base}>
       <Navbar {...{ zoomLevel, setZoomLevel, centerContainer }} />
 
-      <div className={styles.container}>
+      <div
+        className={styles.container}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        style={{
+          cursor: dragging ? "grabbing" : "grab",
+        }}
+      >
         <div
           className={styles.categories}
           style={{
             transform: `translate(${position.x}px, ${position.y}px)`,
             scale: `${zoomLevel / 100}`,
-            cursor: dragging ? "grabbing" : "grab",
             transitionDuration: dragging ? "0ms" : "400ms",
           }}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
         >
           <Category {...buildCategoriesTree(data)[0]} />
         </div>
