@@ -4,12 +4,20 @@
   align-items: center;
   gap: 64px 0;
   position: relative;
+  padding: 0 64px;
 }
 
 .item {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0 8px;
+}
+
+.actions {
+  position: absolute;
+  left: calc(100% + 8px);
+  display: flex;
+  gap: 8px;
 }
 
 .name {
@@ -30,9 +38,9 @@
   background-color: rgb(248, 72, 49);
 }
 
-.rootItem .name {
+.rootItem > .item > .name {
   background-color: white;
-  border: 3px dashed #ccc;
+  border: 2px dashed #ccc;
   color: black;
 }
 
@@ -50,48 +58,61 @@
 
 .children {
   display: flex;
-  gap: 0 32px;
   position: relative;
 }
 
-.name::before,
-.editWrapper::before,
-.name::after,
-.editWrapper::after {
+.base::before,
+.base::after,
+.item::before,
+.item::after {
   content: "";
   position: absolute;
-  height: 32px;
-  width: 2px;
   background-color: #ccc;
+}
+
+.base::before,
+.base::after {
+  height: 2px;
+  top: -32px;
+}
+
+.base::before {
+  left: 0;
+  right: 50%;
+}
+
+.base::after {
+  right: 0;
   left: 50%;
 }
 
-.name::before,
-.editWrapper::before {
+.base:first-child::before {
+  left: 50%;
+}
+
+.base:last-child::after {
+  right: 50%;
+}
+
+.item::before,
+.item::after {
+  height: 32px;
+  width: 2px;
+  left: 50%;
+}
+
+.item::before {
   bottom: 100%;
 }
 
-.name::after,
-.editWrapper::after {
+.item::after {
   top: 100%;
 }
 
-.noArrowBefore::before,
-.noArrowAfter::after {
+.rootItem::before,
+.rootItem::after,
+.rootItem > .item::before,
+.noLinesAfter .item::after {
   width: 0;
   height: 0;
-}
-
-.rootItem .name::after {
-  top: calc(100% + 3px);
-}
-
-.children::before {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  background-color: #ccc;
-  top: -32px;
-  left: 0;
 }
