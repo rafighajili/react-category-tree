@@ -46,6 +46,7 @@ export default function App() {
             transform: `translate(${position.x}px, ${position.y}px)`,
             scale: `${zoomLevel / 100}`,
             cursor: dragging ? "grabbing" : "grab",
+            transitionDuration: dragging ? "0ms" : "400ms",
           }}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
