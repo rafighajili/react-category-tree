@@ -30,40 +30,10 @@
   background-color: rgb(248, 72, 49);
 }
 
-.name::before {
-  content: "";
-  position: absolute;
-  height: 32px;
-  width: 2px;
-  background-color: #ccc;
-  bottom: 100%;
-  left: 50%;
-}
-
-.name::after {
-  content: "";
-  position: absolute;
-  height: 32px;
-  width: 2px;
-  background-color: #ccc;
-  top: 100%;
-  left: 50%;
-}
-
-.noArrowBefore::before,
-.noArrowAfter::after {
-  width: 0;
-  height: 0;
-}
-
 .rootItem .name {
   background-color: white;
   border: 3px dashed #ccc;
   color: black;
-}
-
-.rootItem .name::after {
-  top: calc(100% + 3px);
 }
 
 .editing {
@@ -75,12 +45,45 @@
   border: none;
   font-size: 1.125rem;
   text-align: center;
+  position: relative;
 }
 
 .children {
   display: flex;
   gap: 0 32px;
   position: relative;
+}
+
+.name::before,
+.editWrapper::before,
+.name::after,
+.editWrapper::after {
+  content: "";
+  position: absolute;
+  height: 32px;
+  width: 2px;
+  background-color: #ccc;
+  left: 50%;
+}
+
+.name::before,
+.editWrapper::before {
+  bottom: 100%;
+}
+
+.name::after,
+.editWrapper::after {
+  top: 100%;
+}
+
+.noArrowBefore::before,
+.noArrowAfter::after {
+  width: 0;
+  height: 0;
+}
+
+.rootItem .name::after {
+  top: calc(100% + 3px);
 }
 
 .children::before {

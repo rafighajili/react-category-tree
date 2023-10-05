@@ -84,20 +84,26 @@ export default function Category(props: NestedCategoryType) {
         className={`${styles.item} ${parentId === null ? styles.rootItem : ""}`}
       >
         {isEditing ? (
-          <input
-            className={styles.editing}
-            value={data.find((item) => item.id === id)?.name}
-            onChange={(e) => changeName(e.target.value)}
-            placeholder="Category name"
-            autoFocus
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                confirmEdit();
-              } else if (e.key === "Escape") {
-                cancelEdit();
-              }
-            }}
-          />
+          <div
+            className={`${styles.editWrapper} ${
+              parentId === null ? styles.noArrowBefore : ""
+            } ${!children ? styles.noArrowAfter : ""}`}
+          >
+            <input
+              className={styles.editing}
+              value={data.find((item) => item.id === id)?.name}
+              onChange={(e) => changeName(e.target.value)}
+              placeholder="Category name"
+              autoFocus
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  confirmEdit();
+                } else if (e.key === "Escape") {
+                  cancelEdit();
+                }
+              }}
+            />
+          </div>
         ) : (
           <div
             className={`${styles.name} ${
