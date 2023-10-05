@@ -3,6 +3,7 @@ import styles from "./Button.module.css";
 
 export default function Button({
   children,
+  className,
   variant = "white",
   size = "medium",
   roundedFull = false,
@@ -16,7 +17,7 @@ export default function Button({
     <button
       className={`${styles.base} ${styles[variant]} ${styles[size]} ${
         roundedFull ? styles.roundedFull : ""
-      }`}
+      } ${className}`}
       {...rest}
     >
       {children}

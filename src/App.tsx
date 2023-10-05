@@ -4,6 +4,7 @@ import styles from "./App.module.css";
 import buildCategoriesTree from "./utils/buildCategoriesTree.ts";
 import CategoryContext from "./context/CategoryProvider.tsx";
 import Category from "./components/Category.tsx";
+import Button from "./components/Button.tsx";
 
 type Dimensions = { x: number; y: number };
 
@@ -58,6 +59,102 @@ export default function App() {
         >
           <Category {...buildCategoriesTree(data)[0]} />
         </div>
+
+        <Button
+          className={styles.top}
+          onClick={() =>
+            setPosition((prev) => ({
+              ...prev,
+              y: prev.y - 100,
+            }))
+          }
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.5 15.75l7.5-7.5 7.5 7.5"
+            />
+          </svg>
+        </Button>
+
+        <Button
+          className={styles.right}
+          onClick={() =>
+            setPosition((prev) => ({
+              ...prev,
+              x: prev.x + 100,
+            }))
+          }
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </Button>
+
+        <Button
+          className={styles.bottom}
+          onClick={() =>
+            setPosition((prev) => ({
+              ...prev,
+              y: prev.y + 100,
+            }))
+          }
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </Button>
+
+        <Button
+          className={styles.left}
+          onClick={() =>
+            setPosition((prev) => ({
+              ...prev,
+              x: prev.x - 100,
+            }))
+          }
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+        </Button>
       </div>
     </div>
   );

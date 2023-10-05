@@ -8,7 +8,10 @@
 
 .container {
   position: absolute;
-  inset: 0;
+  top: 96px;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,4 +19,50 @@
 
 .categories {
   user-select: none;
+}
+
+.top,
+.right,
+.bottom,
+.left {
+  position: absolute;
+  padding: 0;
+}
+
+.top > svg,
+.right > svg,
+.bottom > svg,
+.left > svg {
+  width: 32px;
+  height: 32px;
+}
+
+.top,
+.bottom {
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 128px;
+}
+
+.right,
+.left {
+  top: 50%;
+  transform: translate(0, -50%);
+  height: 128px;
+}
+
+.top {
+  top: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.left {
+  left: 0;
 }
