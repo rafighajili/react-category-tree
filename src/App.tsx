@@ -1,4 +1,4 @@
-import { MouseEvent, useContext, useRef, useState } from "react";
+import { MouseEvent, useContext, useState } from "react";
 import Navbar from "./components/Navbar";
 import styles from "./App.module.css";
 import buildCategoriesTree from "./utils/buildCategoriesTree.ts";
@@ -10,30 +10,24 @@ type Dimensions = { x: number; y: number };
 export default function App() {
   const [zoomLevel, setZoomLevel] = useState<number>(100);
   const [dragging, setDragging] = useState<boolean>(false);
-  const [translate, setTranslate] = useState<Dimensions>({ x: 0, y: 0 });
-  const [startPosition, setStartPosition] = useState<Dimensions>({
-    x: 0,
-    y: 0,
-  });
-  const containerRef = useRef(null);
+  const [position, setPosition] = useState<Dimensions>({ x: 0, y: 0 });
 
   const { data } = useContext(CategoryContext);
 
-  const centerContainer = () => setTranslate({ x: 0, y: 0 });
+  const centerContainer = () => {
+    setPosition({ x: 0, y: 0 });
+  };
 
-  const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
+  const handleMouseDown = () => {
     setDragging(true);
-    setStartPosition({
-      x: e.clientX - translate.x,
-      y: e.clientY - translate.y,
-    });
   };
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (dragging) {
-      const newX = e.clientX - startPosition.x;
-      const newY = e.clientY - startPosition.y;
-      setTranslate({ x: newX, y: newY });
+      setPosition((prev) => ({
+        x: prev.x + e.movementX,
+        y: prev.y + e.movementY,
+      }));
     }
   };
 
@@ -47,10 +41,9 @@ export default function App() {
 
       <div className={styles.container}>
         <div
-          ref={containerRef}
           className={styles.categories}
           style={{
-            transform: `translate(${translate.x}px, ${translate.y}px)`,
+            transform: `translate(${position.x}px, ${position.y}px)`,
             scale: `${zoomLevel / 100}`,
             cursor: dragging ? "grabbing" : "grab",
           }}

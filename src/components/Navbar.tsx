@@ -25,9 +25,23 @@ export default function Navbar({
       <span className={styles.logo}>Category Tree</span>
 
       <div className={styles.actions}>
+        <Button variant="purple">List view</Button>
+
         <Tooltip text="Center the categories">
-          <Button variant="purple" onClick={centerContainer}>
-            Center
+          <Button onClick={centerContainer}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25"
+              />
+            </svg>
           </Button>
         </Tooltip>
 
@@ -63,9 +77,34 @@ export default function Navbar({
                   <Button
                     key={level}
                     onClick={() => changeZoomLevel(level, close)}
-                    variant={zoomLevel === level ? "purple" : "white"}
+                    style={{
+                      width: "100px",
+                      justifyContent: "start",
+                      padding: "0 24px",
+                    }}
                   >
-                    {level}%
+                    <span>{level}%</span>
+
+                    {zoomLevel === level && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={4}
+                        stroke="currentColor"
+                        style={{
+                          height: "16px",
+                          width: "16px",
+                          marginLeft: "4px",
+                        }}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                    )}
                   </Button>
                 ))}
               </div>

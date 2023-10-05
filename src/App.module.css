@@ -16,6 +16,5 @@
 
 .categories {
   padding: 32px;
-  transition-duration: 400ms;
   user-select: none;
 }
